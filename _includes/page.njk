@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ '/css/reset_plus.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+		<script src="{{ '/js/script.js' | url }}" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+    <title>{{ metadata.title }} | {{ title }}</title>
+  </head>
+  <body>
+		<header>
+        <div class="headbox">
+          <img class="logo" src="{{ '/media/logo.png' | url }}" height="200" width="200">
+          <div class="titel"><h1>Larissa Marien</h1></div>
+        </div>
+
+			    <nav>
+						<ul>
+			      {%- for nav in collections.nav -%}
+			      	<li class="{% if nav.url == page.url %}active{% endif %}">
+			        	<a href="{{ nav.url | url }}">{{ nav.data.title }}</a>
+			       </li>
+			      {%- endfor -%}
+						</ul>
+			    </nav>
+		</header>
+		<main>
+					{{ content | safe }}
+		</main>
+		<footer>
+					<p>11ty site made by Larissa Marien</p>
+		</footer>
+  </body>
+</html>
